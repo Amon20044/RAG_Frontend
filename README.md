@@ -33,7 +33,7 @@ Develop a **Fullstack RAG (Retrieval Augmented Generation)** Application where u
 
 ## 🔥 Live Demo
 
-**Demo Video:** [RAG_Website](https://rag-frontend-amonsharma.vercel.app/)
+**Live Demo:** [RAG_Website](https://rag-frontend-amonsharma.vercel.app/)
 
 ---
 
