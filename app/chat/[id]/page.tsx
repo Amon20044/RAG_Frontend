@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useParams, useSearchParams } from 'next/navigation';
 import { Send, FileUp, Bot, User, Loader2, X, File, FileText, MessageSquare, AlertCircle } from 'lucide-react';
-const url = process.env.NEXT_BACKEND_API_URL || 'http://127.0.0.1:8080'
+const url = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
 interface Message {
   id: string;
