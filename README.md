@@ -1,9 +1,6 @@
 
----
-
 # 📑 README for RAG_Frontend 
-
-```markdown
+---
 # 🧠 RAG-BOT - Fullstack Internship Assignment Submission
 
 > Upload multiple PDFs, ask intelligent questions, and get precise answers using AI.  
