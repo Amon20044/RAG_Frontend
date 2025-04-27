@@ -1,102 +1,215 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useRouter } from 'next/navigation';
+import { FileSearch, ChevronRight, MessageSquare, Database, Bot, Shield } from 'lucide-react';
+import Image from 'next/image';
+
+export default function LandingPage() {
+  const router = useRouter();
+
+  const handleGetStarted = () => {
+    const randomId = Math.floor(100000 + Math.random() * 900000); // 6 digit random id
+    router.push(`/chat/${randomId}`);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <div className='absolute top-0 left-0 w-full h-16 z-10 flex items-center justify-center'>
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/logo.svg"  // This works because it's in the 'public' folder
+          alt="Logo"
+          width={100} // Optional, specify image dimensions
+          height={100} // Optional, specify image dimensions
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      </div>
+      <div className="relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-white z-0"></div>
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-green-500 opacity-10 rounded-bl-full z-0"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="container mx-auto px-6 py-16 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between">
+            <div className="lg:w-1/2 mb-12 lg:mb-0">
+              <div className="mb-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                  <Bot className="w-4 h-4 mr-1" />
+                  AI-Powered Document Assistant
+                </span>
+              </div>
+
+              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                Retrieve and <span className="text-green-600">Generate</span> <br className="hidden md:inline" />
+                Knowledge Instantly
+              </h1>
+
+              <p className="text-lg text-gray-600 mb-8">
+                Upload your documents and get intelligent answers based on your content.
+                Our RAG system combines the power of retrieval with generative AI for accurate,
+                context-aware responses.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={handleGetStarted}
+                  className="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-4 rounded-xl shadow-lg transition-all duration-300 font-medium"
+                >
+                  Get Started
+                  <ChevronRight className="ml-2 w-5 h-5" />
+                </button>
+
+                <button
+                  className="flex items-center justify-center bg-white border border-green-200 hover:bg-green-50 text-green-700 text-lg px-8 py-4 rounded-xl shadow-sm transition-all duration-300 font-medium"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            <div className="lg:w-5/12">
+              <div className="bg-white rounded-2xl shadow-xl p-2 border border-gray-100">
+                <div className="bg-green-600 rounded-xl p-2">
+                  <div className="bg-white rounded-lg overflow-hidden">
+                    <div className="bg-green-600 p-3 flex items-center">
+                      <MessageSquare className="h-5 w-5 text-white mr-2" />
+                      <div className="text-white font-medium">
+                        <Image
+                          src="/logo.svg"  // This works because it's in the 'public' folder
+                          alt="Logo"
+                          width={100} // Optional, specify image dimensions
+                          height={100} // Optional, specify image dimensions
+                        />
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <div className="flex mb-4">
+                        <div className="bg-green-100 p-2 rounded-full mr-3">
+                          <Bot className="h-5 w-5 text-green-600" />
+                        </div>
+                        <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-none p-3 shadow-sm max-w-xs">
+                          <p className="text-gray-800">How can I help you with your documents today?</p>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-end mb-6">
+                        <div className="bg-green-600 rounded-2xl rounded-tr-none p-3 shadow-sm max-w-xs text-white">
+                          <p>Can you summarize this financial report for me?</p>
+                        </div>
+                        <div className="bg-green-700 p-2 rounded-full ml-3">
+                          <div className="h-5 w-5 text-white"></div>
+                        </div>
+                      </div>
+
+                      <div className="bg-gray-100 rounded-xl p-3 flex items-center">
+                        <input
+                          type="text"
+                          placeholder="Ask about your documents..."
+                          className="bg-transparent border-0 flex-grow focus:outline-none text-gray-700"
+                        />
+                        <FileSearch className="h-5 w-5 text-green-600 mr-2" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* Features Section */}
+      <div className="bg-gray-50 py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900">How It Works</h2>
+            <div className="mt-2 h-1 w-24 bg-green-500 mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {/* Feature 1 */}
+            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100 transition-transform hover:transform hover:-translate-y-1">
+              <div className="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-5">
+                <FileSearch className="h-7 w-7 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Upload Documents</h3>
+              <p className="text-gray-600">
+                Share your PDFs, DOCXs, TXT files, or CSVs. Our system processes and indexes your content for quick retrieval.
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100 transition-transform hover:transform hover:-translate-y-1">
+              <div className="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-5">
+                <Database className="h-7 w-7 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Semantic Search</h3>
+              <p className="text-gray-600">
+                Our RAG engine understands the meaning behind your questions and finds the most relevant information from your documents.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100 transition-transform hover:transform hover:-translate-y-1">
+              <div className="bg-green-100 w-14 h-14 rounded-full flex items-center justify-center mb-5">
+                <Bot className="h-7 w-7 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">AI Generation</h3>
+              <p className="text-gray-600">
+                Get comprehensive answers generated by AI that's grounded in your document content, ensuring accuracy and relevance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="bg-green-600 rounded-2xl shadow-xl p-10 md:p-16">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <div className="md:w-2/3 mb-8 md:mb-0">
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  Ready to get started with intelligent document analysis?
+                </h2>
+                <p className="text-green-100 text-lg">
+                  Create a new chat session in seconds with no signup required.
+                </p>
+              </div>
+              <div>
+                <button
+                  onClick={handleGetStarted}
+                  className="flex items-center justify-center bg-white text-green-700 text-lg px-8 py-4 rounded-xl shadow-lg transition-all duration-300 font-medium hover:bg-green-50"
+                >
+                  Start Chatting
+                  <ChevronRight className="ml-2 w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-50 py-8 border-t border-gray-200">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center mb-4 md:mb-0">
+              <span className="text-xl font-bold text-gray-900">
+                <Image
+                  src="/logo.svg"  // This works because it's in the 'public' folder
+                  alt="Logo"
+                  width={100} // Optional, specify image dimensions
+                  height={100} // Optional, specify image dimensions
+                />
+              </span>
+            </div>
+
+            <div className="flex items-center text-sm text-gray-500">
+              <Shield className="h-4 w-4 mr-1" />
+              <span>Your documents are processed securely and not stored permanently</span>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
