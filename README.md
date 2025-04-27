@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+# 📑 README for RAG_Frontend 
+
+```markdown
+# 🧠 RAG-BOT - Fullstack Internship Assignment Submission
+
+> Upload multiple PDFs, ask intelligent questions, and get precise answers using AI.  
+> Powered by FastAPI, LangChain, React.js, Supabase, and Datastax Astra DB.
+
+---
+
+## 📚 Assignment Objective
+
+Develop a **Fullstack RAG (Retrieval Augmented Generation)** Application where users can:
+- Upload one or more PDF files 📄
+- Ask natural language questions 🤔
+- Receive AI-generated contextual answers 🧠
+
+---
+
+## 🛠️ Tools and Technologies Used
+
+| Layer            | Technology  |
+|------------------|--------------|
+| **Frontend**     | React.js (Vite + TypeScript) |
+| **Backend**      | FastAPI (Python) |
+| **NLP Processing** | LangChain (LangGraph) |
+| **AI Model**     | Meta-Llama 4 Maverick 17B |
+| **Database**     | Supabase PostgreSQL |
+| **Vector Store** | Datastax Astra VectorDB |
+| **File Storage** | Local Filesystem (temporary) |
+
+---
+
+## 🔥 Live Demo
+
+**Demo Video:** (Attach Loom or YouTube link here if available)
+
+---
+
+## 📂 Repositories
+
+- **Frontend Repo** (this repo): [RAG_Frontend](https://github.com/Amon20044/RAG_Frontend)
+- **Backend Repo**: [RAG_Backend](https://github.com/Amon20044/RAG_Backend)
+
+---
+
+## 🖥️ Frontend Setup (React.js)
+
+### Prerequisites
+- Node.js v18+
+- npm / yarn
+
+### Install and Run Locally
 
 ```bash
+# Clone frontend repo
+git clone https://github.com/Amon20044/RAG_Frontend.git
+cd RAG_Frontend
+
+# Install dependencies
+npm install
+
+# Start frontend server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Frontend running at**: `http://127.0.0.1:3000/`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Backend Setup (FastAPI)
 
-## Learn More
+### Install and Run
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Clone backend repo
+git clone https://github.com/Amon20044/RAG_Backend.git
+cd RAG_Backend/server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install requirements
+pip install -r requirements.txt
 
-## Deploy on Vercel
+# Run FastAPI server
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8080
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Backend running at**: `http://127.0.0.1:8080`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🌐 API Endpoints
+
+| Method | Endpoint | Description |
+|:---|:---|:---|
+| POST | `/chat/{id}` | Upload multiple PDFs and a question to get AI answer |
+
+---
+
+## 🛎️ API Usage Example
+
+**Request:**  
+`POST http://127.0.0.1:8080/chat/{id}`
+
+**Form Data**:
+- `files[]`: Upload multiple PDF files
+- `question`: Enter your natural language question
+
+**Response**:
+```json
+{
+  "question": "What are the key findings of this report?",
+  "answer": "The key findings highlight major contributions across the project phases. Thanks for asking!"
+}
+```
+
+---
+
+## 📊 Architecture Diagram
+
+```plaintext
+[Frontend: React.js]
+      ↓
+[Backend: FastAPI (Python)]
+      ↓
+[Temporary File Upload]
+      ↓
+[LangChain Text Chunking]
+      ↓
+[Vector Embeddings (AstraDB)]
+      ↓
+[Question Answering via Llama4]
+      ↓
+[Answer Displayed on UI]
+```
+
+---
+
+## 🎨 UI Design Reference
+
+The frontend UI is based on the provided Figma design:  
+🔗 [Figma Link](https://www.figma.com/file/QHpASp7wGRRcjh0oxCuspL/FullStack-Engineer-Internship-Assignment?type=design&node-id=0-1&mode=design&t=geu9rfpXEecN8eFZ-0)
+
+- File upload page
+- Chat interface for asking questions
+- Loading spinners and error handling
+
+---
+
+## 📑 Assignment Requirements - Achieved ✅
+
+| Requirement | Status |
+|:---|:---|
+| Upload PDF documents | ✅ |
+| Store and process PDFs | ✅ |
+| Ask questions based on uploaded PDFs | ✅ |
+| Display generated answers | ✅ |
+| Follow-up questions support | ✅ |
+| Database integration (Supabase) | ✅ |
+| Clean UI/UX Design (React.js) | ✅ |
+| Fast response time (optimized chunking) | ✅ |
+| Error handling and validations | ✅ |
+
+---
+
+## 🛡 Future Improvements
+
+- Implement full JWT authentication
+- Allow saving chat history per user
+- Deploy frontend and backend to production (e.g., AWS / Railway)
+
+---
+
+## 🧑‍💻 Author
+
+Built with ❤️ by [Amon Sharma](https://github.com/Amon20044)
+
+---
+
+## 🚀 Star the Repo if You Like It!
+
+> "Learning every day. Building the future today."
+
+---
