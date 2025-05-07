@@ -207,8 +207,8 @@ export default function ChatPage() {
             <Image
                   src="/logo.svg"  // This works because it's in the 'public' folder
                   alt="Logo"
-                  width={100} // Optional, specify image dimensions
-                  height={100} // Optional, specify image dimensions
+                  width={20} // Optional, specify image dimensions
+                  height={20} // Optional, specify image dimensions
             />
           </div>
           <div className="bg-green-700 px-3 py-1 rounded-full text-sm font-medium">

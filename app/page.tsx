@@ -19,8 +19,8 @@ export default function LandingPage() {
         <Image
           src="/logo.svg"  // This works because it's in the 'public' folder
           alt="Logo"
-          width={100} // Optional, specify image dimensions
-          height={100} // Optional, specify image dimensions
+          width={20} // Optional, specify image dimensions
+          height={20} // Optional, specify image dimensions
         />
       </div>
       <div className="relative overflow-hidden">
@@ -76,8 +76,8 @@ export default function LandingPage() {
                         <Image
                           src="/logo.svg"  // This works because it's in the 'public' folder
                           alt="Logo"
-                          width={100} // Optional, specify image dimensions
-                          height={100} // Optional, specify image dimensions
+                          width={10} // Optional, specify image dimensions
+                          height={10} // Optional, specify image dimensions
                         />
                       </div>
                     </div>
@@ -198,8 +198,8 @@ export default function LandingPage() {
                 <Image
                   src="/logo.svg"  // This works because it's in the 'public' folder
                   alt="Logo"
-                  width={100} // Optional, specify image dimensions
-                  height={100} // Optional, specify image dimensions
+                  width={10} // Optional, specify image dimensions
+                  height={10} // Optional, specify image dimensions
                 />
               </span>
             </div>
